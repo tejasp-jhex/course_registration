@@ -136,6 +136,11 @@ def send_enrollment_email(student_name: str, course_title: str):
 # ══════════════════════════════════════════════════════════════════════════════
 # ROUTER: Courses
 # ══════════════════════════════════════════════════════════════════════════════
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
 courses_router = APIRouter(prefix="/courses", tags=["Courses 📚"])
 
 @courses_router.get("/", response_model=PaginatedResponse[Course], summary="List all courses")

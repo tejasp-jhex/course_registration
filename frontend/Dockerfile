@@ -1,13 +1,19 @@
-FROM node:jod-trixie-slim
+FROM node:22-trixie-slim AS build
 
-WORKDIR /app 
+WORKDIR /app
 
-COPY package.json . 
+COPY package*.json ./
 
-RUN npm install 
+RUN npm install
 
-COPY . .   
+COPY . .
 
-EXPOSE 5173 
+RUN npm run build
 
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+FROM nginx:alpine
+
+COPY --from=build /app/dist /usr/share/nginx/html
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]

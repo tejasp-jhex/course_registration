@@ -1,12 +1,15 @@
-FROM python:3.13.14-alpine3.23
+FROM python:3.13-alpine
 
 WORKDIR /app
 
 COPY requirements.txt .
 
-RUN pip install -r requirements.txt 
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
+
+RUN adduser -D appuser
+USER appuser
 
 EXPOSE 8000
 
