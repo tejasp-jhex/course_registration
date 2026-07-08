@@ -13,7 +13,7 @@ env:
   PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   CLUSTER_NAME: ${{ secrets.GKE_CLUSTER_NAME }}
   GKE_REGION: ${{ secrets.GKE_REGION }}
-  REGION: us-central1
+  REGION: asia-south1
   REPOSITORY: course-registration
   IMAGE: react-frontend
   NAMESPACE: course-registration
