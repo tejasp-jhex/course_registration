@@ -42,7 +42,7 @@ export default function Dashboard() {
   return (
     <div>
       <div className="page-header">
-        <h1>Dashboard 📊</h1>
+        <h1>Tejas Pokale 📊</h1>
         <p>Platform overview — powered by <code style={{ fontFamily: 'var(--mono)', background: 'var(--accent-soft)', padding: '2px 6px', borderRadius: '4px', color: 'var(--accent)', fontSize: '12px' }}>GET /analytics/summary</code></p>
       </div>
 
